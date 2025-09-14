@@ -29,8 +29,7 @@ def generate_implication_clause(X, Y):
 	clauses.append(clause + "0")
 
 # Generate clauses encoding that <= s variables and >= l variables in X are assigned true
-# Using either a sequential counter encoding or, if totalizer is true, a totalizer encoding
-# If strengthen is true, the encoding uses extra clauses that are not strictly needed
+# using Sinz's sequential counter encoding
 def generate_adder_clauses(X, l, s):
 	global total_vars
 
@@ -217,6 +216,7 @@ def extract_r2(R, c):
 R1 = extract_r1(data[0],0) + extract_r1(data[1],1) + extract_r1(data[2],2) + extract_r1(data[3],3)
 R2 = extract_r2(data[0],0) + extract_r2(data[1],1) + extract_r2(data[2],2) + extract_r2(data[3],3)
 
+# Functions implementing Delisle's equivalence classes (defined in Section 2.2 of Delisle's thesis)
 def br1(r): return 1 if r in R1 else 0
 def br2(r): return 1 if r in R2 else 0
 def bc1(c): return 1 if c+N in R1 else 0
