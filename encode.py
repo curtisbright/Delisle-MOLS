@@ -72,7 +72,7 @@ def generate_exactly_one_clauses(X):
 
 # Read relations from the first command-line argument
 if len(sys.argv) <= 1:
-	print("Provide the relations as first command-line argument: e.g. python3 encoder.py [[1,3,3],[1,3,3],[1,3,3],[1,3,3]]")
+	print("Provide the form of the two relations as the first command-line argument, e.g., python3 encoder.py [[1,3,3],[1,3,3],[1,3,3],[1,3,3]]")
 	quit()
 
 data = json.loads(sys.argv[1])
