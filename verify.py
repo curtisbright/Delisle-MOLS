@@ -18,6 +18,9 @@ if len(sys.argv) <= 1:
 data = json.loads(sys.argv[1])
 
 n = 10
+assert(len(data) == 4)
+for i in range(4):
+    assert(len(data[i]) == 3)
 
 # Convert the list l of positive literals from solution into a pair of Latin squares
 def to_mols(l):
