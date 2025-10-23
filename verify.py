@@ -11,7 +11,8 @@ if verbose: sys.argv.remove("-v")
 
 # Read relations from the first command-line argument
 if len(sys.argv) <= 1:
-    print("Provide the relations as first command-line argument: e.g. python3 encoder.py [[1,3,3],[1,3,3],[1,3,3],[1,3,3]]")
+    print("Provide the form of the two relations as the first command-line argument, e.g., python3 verify.py [[1,3,3],[1,3,3],[1,3,3],[1,3,3]]")
+    print("Provide the list of solutions to verify on the standard input")
     quit()
 
 data = json.loads(sys.argv[1])
@@ -62,6 +63,7 @@ def extract_r2(R, c):
 R1 = extract_r1(data[0],0) + extract_r1(data[1],1) + extract_r1(data[2],2) + extract_r1(data[3],3)
 R2 = extract_r2(data[0],0) + extract_r2(data[1],1) + extract_r2(data[2],2) + extract_r2(data[3],3)
 
+# Functions implementing Delisle's equivalence classes (defined in Section 2.2 of Delisle's thesis)
 def br1(r): return 1 if r in R1 else 0
 def br2(r): return 1 if r in R2 else 0
 def bc1(c): return 1 if c+n in R1 else 0
@@ -76,6 +78,7 @@ def st_class(s,t): return 2*((bs1(s)+bt1(t))% 2) + (bs2(s)+bt2(t))%2
 count = 0
 start_time = time.time()
 
+# Read list of solutions from the standard input
 for line in fileinput.input(files='-'):
     l = list(map(int, line.split()[3:-1]))
 
