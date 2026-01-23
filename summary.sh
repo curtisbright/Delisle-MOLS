@@ -2,6 +2,13 @@
 
 # Script to summarize the results of the logs (requires the program datamash)
 
+# Check if datamash exists
+if ! command -v datamash &> /dev/null
+then
+    echo "Error: This script requires the program datamash to be installed; exiting."
+    exit
+fi
+
 stats=(count mean median min max)
 
 printf "case"
