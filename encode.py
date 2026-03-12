@@ -7,7 +7,7 @@ total_vars = 0
 # List to hold clauses of SAT instance
 clauses = []
 
-# Generate a clause containing the literals in the set B, a row 
+# Generate a clause containing the literals in the set X
 def generate_clause(X):
 	clause = ""
 	for x in X:
