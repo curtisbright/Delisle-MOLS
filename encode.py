@@ -162,7 +162,7 @@ for c in range(4):
 				generate_implication_clause({LA[i][0][s]}, {-LA[i+1][0][s2]})
 
 # Symmetry breaking on cols (first Latin square)
-for c in range(0 if data[0] == data[1] else 1, 4):
+for c in range(4):
 	for j in col_classes[c][:-1]:
 		for s in range(n):
 			for s2 in range(s):
